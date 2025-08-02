@@ -1,24 +1,38 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Keshav Gautam - Professional Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  <script type="importmap">
+    
+    <!-- Babel is used to transpile JSX and TypeScript in the browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Import Map for resolving module names like 'react' to full URLs -->
+    <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@18.2.0",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "lucide-react": "https://esm.sh/lucide-react@^0.536.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.536.0",
     "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
     "react/": "https://esm.sh/react@^19.1.1/"
   }
 }
 </script>
-</head>
+  </head>
   <body class="bg-slate-900 text-slate-300 font-sans">
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+
+    <!-- 
+      Entry point of the React application.
+      - type="text/babel": Tells the browser that this script needs to be processed by Babel.
+      - data-type="module": Enables ES module syntax (import/export).
+      - data-presets="react,typescript": Configures Babel to handle React (JSX) and TypeScript syntax.
+      - src="./index.tsx": The main application file.
+      This setup allows the project to run on any static web server like GitHub Pages without a build step.
+    -->
+    <script type="text/babel" data-type="module" data-presets="react,typescript" src="./index.tsx"></script>
   </body>
 </html>
